@@ -16,8 +16,7 @@ Document Linux administration, account management, SSH hardening, and Mandatory 
 # To-Do-List
 - Configure non-interactive service account
     ```bash
-    sudo useradd -s /sbin/nologin deploy_bot
-    grep deploy_bot /etc/passwd
+    sudo useradd -s /sbin/nologin <username>
     ```
 
 - Set and check user account expiration

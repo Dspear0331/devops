@@ -17,26 +17,26 @@ Switching to a RHEL-based distribution (AlmaLinux) and setting up essential serv
 
 # [To-Do-List]
 
-## 1. Install & Configure SSH
+- Install & Configure SSH
 ```bash
-# Update repository metadata and install OpenSSH server
+#Update repository metadata and install OpenSSH server
 sudo dnf check-update && sudo dnf install openssh-server -y
 
-# Enable and start SSH service in one command (--now starts it immediately)
+#Enable and start SSH service in one command (--now starts it immediately)
 sudo systemctl enable --now sshd
 
-# Verify service status
+#Verify service status
 sudo systemctl status sshd
 ```
 
-# [Firewall Configuration]
+- Firewall Configuration
 ```bash
-#Allow SSH service permanently through firewalld
+- Allow SSH service permanently through firewalld
 sudo firewall-cmd --permanent --add-service=ssh
-# Reload firewall rules to apply changes
+#Reload firewall rules to apply changes
 sudo firewall-cmd --reload
 ```
-# [User Mangement]
+- User Mangement
 ```bash
 # Add a dedicated service user with no interactive login shell
 sudo useradd -s /sbin/nologin deploy_bot
@@ -44,7 +44,7 @@ sudo useradd -s /sbin/nologin deploy_bot
 grep deploy_bot /etc/passwd
 ```
 
-# [SELinux Security Hardening]
+- SELinux Security Hardening
 ```bash
 # Ensure targeted policy is installed
 sudo dnf update -y && sudo dnf install selinux-policy-targeted -y
@@ -53,11 +53,11 @@ sudo dnf update -y && sudo dnf install selinux-policy-targeted -y
 getenforce
 sestatus
 
-# Temporarily switch modes (runtime)
+#Temporarily switch modes (runtime)
 sudo setenforce 0    # Permissive (log only, do not block)
 sudo setenforce 1    # Enforcing (block unauthorized actions)
 
-# Make Enforcing permanent across reboots
+#Make Enforcing permanent across reboots
 sudo vi /etc/selinux/config
 # Edit line to: SELINUX=enforcing
 ```
@@ -73,8 +73,7 @@ Diagnostic Command:
 # Stream live SSH logs to catch malformed username connection requests
 sudo journalctl -u sshd -f
 ```
-# [Status: Success/failure]
-Notes: Success
-* AlmaLinux comes with SELinux pre-installed and set to Enforcing by default.
-* systemctl enable --now sshd eliminates the need for a separate systemctl start command.
+# [Status: Success]
+- AlmaLinux comes with SELinux pre-installed and set to Enforcing by default.
+- systemctl enable --now sshd eliminates the need for a separate systemctl start command.
 

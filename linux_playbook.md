@@ -1,4 +1,6 @@
 # Goal
+## Note this breaks my format but this is good basics but for a more in depth between the distro i will conitinue through rehl.md and ubuntu.md
+
 Document Linux administration, account management, SSH hardening, and Mandatory Access Control (MAC) using AppArmor (Ubuntu) and SELinux (RHEL/Rocky).
 
 # Pseudocode

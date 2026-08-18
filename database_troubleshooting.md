@@ -57,7 +57,7 @@ Edge: []
 fix: []
 
 # [Status: Success]
-- sudo journal -u mariadb worked because there is no dir /var/log/mysql/error.log# Date: 2026-08-16
+- Notes: sudo journal -u mariadb worked because there is no dir /var/log/mysql/error.log# Date: 2026-08-16
 ---
 # [Goal]
 Check the system unit status and deep-dive into the error logs provided by the database engine.

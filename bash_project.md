@@ -29,7 +29,7 @@ check to encsure succes
 # [To-Do-List]
 - [ssh to app app server2]
     ```bash
-    ssh steve@stapp02
+    ssh <username>@<hostname>
     ```
 - [Ensure zip is installed]
     ```bash
@@ -42,7 +42,7 @@ check to encsure succes
     ssh-keygen -t rsa -N ""
     ssh-copy-id <username>@<hostname>
     #verify
-    ssh <username>@hostname
+    ssh <username>@<hostname>
     ```
 - write srcript
     - [zip and store]
@@ -64,7 +64,7 @@ check to encsure succes
 
 - [Ensure xfusioncorp_news.zip is on storage]
     ```bash
-    ssh natasha@ststor01 
+    ssh <username>@<hostname> 
     ls /archives
     ```
 # [Edges]

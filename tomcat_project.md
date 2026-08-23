@@ -44,16 +44,17 @@ sudo firewall-cmd --zone=public --remove-port=22/tcp --permanent
 
 - [setup tomcat]
 ```bash
-sudo systemctl start tomcat
 #change to listening port
 sudo vi /etc/tomcat/server.xml
 #change uncommeted connector to 8088
+#copy or delete default ROOT
+sudo rm -rf  /var/lib/tomcat/webapps/ROOT
 #move .war file to tomcat
 mv ROOT.war /var/lib/tomcat/webapps/
 #change ownership
 sudo chown tomcat:tomcat /var/lib/tomcat/webapps/ROOT.war
-#restart
-sudo systemctl restart tomcat
+#start service
+sudo systemctl start tomcat
 #test tomcat is listing 
 sudo lsof -i :8088
 #if ss or Isof is not installed
@@ -79,7 +80,11 @@ but the lab did not state that ssh is allowed to be persistant in the firewall p
 # Remove port 22 from the permanent config in memory/disk while keeping current session alive
 sudo firewall-cmd --zone=public --remove-port=22/tcp --permanent
 ```
-
+- Edge: if you try to remove the ROOT file in /webapps/ while tomcat is active the command will work but will not remove the file from memory and may rewrite ROOT
+- Fix: Ensure tomcat is restarted
+```bash
+sudo systemctl restart tomcat
+```
 # [Status: Success]
 - Notes: In previous notes I stated the command was `sudo firewall-cmd --zone=public --add-port=22/tcp --permanent --offline`.
 This throws an error because `--offline` is not a valid flag.

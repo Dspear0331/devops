@@ -25,7 +25,7 @@ linsten to network
 {date; sudo ss -tulpn | grep -E '22|80';} >> filename.txt
 ```
 #lab dose not have http open but layout will be simialar to this
-![alt text](linux_ss.png)
+![alt text](linux_ss.md)
 # [Edges]
 Edge: []
 fix: []

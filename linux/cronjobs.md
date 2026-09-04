@@ -38,7 +38,6 @@ Create a cron job with root permission and executes every 5 minutes
     */5 * * * * echo hello > /tmp/cron_text
 - check if cron exsist
     ```bash
-    crontab -l
     #if cron is root need to check as root 
     sudo crontab -l
     ```

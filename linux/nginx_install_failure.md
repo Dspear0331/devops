@@ -37,4 +37,8 @@ Edge: []
 fix: []
 
 # [Status:Failure]
-- Notes: time failure i think it was because of a misconfiguration of the .conf 
+- Notes: I mess the paths up .crt and .key for the lab where suppose to be in /etc/ssl not etc/pki/tls/private. They really didn't explain where the files go in the course so I assumed we were using REHL it was the pki dir. I started following the lab and did not think and mixed what I taught myself with what the lab wanted. Also, chaining a command like this is not effiecnt for debugging i could do & so nothing can progress unless the previous command is successful. Then you will run into a possible silent failure grouping them in the move to .crt and .key would be easier for debugging. Grouping things like this will be my new chaining method also stop skipping pseudo. Also I attempted to use shell -c because operators do not pass sudo commands so I found it somewhere does not work tee is better
+```bash
+echo "Welcome!" | sudo tee /usr/share/nginx/html/index.html
+```
+also learn to spell 'natilus' come on

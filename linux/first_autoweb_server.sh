@@ -1,5 +1,4 @@
 #!/bin/bash
-
 # ecape if error 
 set -e
 
@@ -9,13 +8,14 @@ if [ -z "$1" ]; then
 
 fi
 PORT="$1"
-
 useradd -r -m -s /sbin/nologin server_bot
-dnf install firewalld tomcat selinux-policy-targeted -y
+dnf install -y firewalld tomcat selinux-policy-targeted policycoreutils-python-utils # if semanage isn't present
 #Ensure selinux enforcing after reboot
 sed -i 's/^SELINUX=.*/SELINUX=enforcing/' /etc/selinux/config
 #Ensure selinux is enforcing now
 setenforce 1
+#ensure selinux also does not block port
+semanage port -a -t http_port_t -p tcp "$PORT"
 
 #set-up firewall
 firewall-offline-cmd --zone=public --add-port="${PORT}/tcp" --permanent

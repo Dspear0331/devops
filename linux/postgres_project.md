@@ -65,4 +65,7 @@ CREATE DATABASE <database_name>
 executes
 
 # [Status: Success]
-- Notes:This was annoying,because of the silient failures, it is very important 
+- Notes:This was annoying,because of the silient failures, it is very important if postgresql is not installed
+```bash
+sudo dnf install -y postgrsql
+```

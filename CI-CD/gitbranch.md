@@ -26,7 +26,7 @@ git fetch
 
 - [create and switch branch]
 ```bash
-git swicth -c xfusioncorp_ecommerce
+git switch -c xfusioncorp_ecommerce
 ```
 - [check]
 ```bash 
@@ -41,12 +41,12 @@ To add an exception for this directory, call:
 git config --global --add safe.directory /usr/src/kodekloudrepos/ecommerce
 ```
 - Edge: error: cannot open '.git/FETCH_HEAD': Permission denied
-- Fix:
+- Fix: Change ownership
 ```bash
-sudo git fetch
+chown -R $(whoami) /usr/src/kodekloudrepos/ecommerce
 ```
 or if able change permission for the rep 
 with chmod
 
-# [Status: Success / Failure]
+# [Status: Success]
 - Notes:

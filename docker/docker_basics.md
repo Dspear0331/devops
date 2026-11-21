@@ -25,4 +25,4 @@ run a command in a container
 docker exec -it <container_name> /bin/bash
 
 #a docker can be put to sleep 
-docker run <rmi> sleep <secs>                   
+docker run <container> sleep <secs>                   

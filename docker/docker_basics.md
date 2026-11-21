@@ -8,14 +8,14 @@ docker ps
 # display container running or not
 docker ps -a 
 
-# remove container stopped container
+# remove stopped container 
 docker rm <container_name or container_id>
 #verify
 docker ps 
 
 #view docker images 
 docker image
-#remove images all dependent dockers must be stoped
+#remove images all dependent dockers must be stopped
 docker rmi <image_name or image_id>
 
 pulls 
@@ -23,3 +23,6 @@ docker pull ubuntu
 
 run a command in a container
 docker exec -it <container_name> /bin/bash
+
+#a docker can be put to sleep 
+docker run <rmi> sleep <secs>                   

@@ -26,7 +26,9 @@ docker exec -it <container_name> /bin/bash
 
 #a docker can be put to sleep 
 docker run <container> sleep <secs>                   
-
+#clean up all stopped containers networks not used by at least one container all dangling images and unused build cache
+docker system prune
+select yes
 ***********************************************************************************
 
 The Nautilus DevOps team is conducting application deployment tests on selected application servers. They require a nginx container deployment on Application Server 1. Complete the task with the following instructions:
